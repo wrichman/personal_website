@@ -7,7 +7,7 @@ PersonalWebsite::Application.routes.draw do
   root 'welcome#index'
 
 
-  resources :sessions
+  resources :sessions, :only => [:new, :create, :destroy]
 
   resources :users do
     resources :courses do
@@ -16,8 +16,8 @@ PersonalWebsite::Application.routes.draw do
   end
 
   resources :courses do
-      resources :lessons
-    end
+    resources :lessons
+  end
 
 
   # Example of regular route:

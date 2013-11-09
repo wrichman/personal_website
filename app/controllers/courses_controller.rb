@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
 
   before_filter :require_user
+  before_filter :require_login
 
   def new
     @course = @user.courses.build

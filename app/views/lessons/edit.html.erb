@@ -1,2 +1,27 @@
 <h1>Lessons#edit</h1>
 <p>Find me in app/views/lessons/edit.html.erb</p>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h1>Lesson for <%= @course.title %></h1>
+
+<%= form_for [@course, @lesson] do |f| %>
+  
+  <%= render 'shared/form_errors', :f => f %>
+  
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <div class="form-actions">
+    <%= f.submit 'Pledge Now', :class => 'btn' %>
+  </div>
+
+<% end %>
