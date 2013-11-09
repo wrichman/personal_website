@@ -1,5 +1,4 @@
 PersonalWebsite::Application.routes.draw do
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -12,7 +11,9 @@ PersonalWebsite::Application.routes.draw do
   resources :users
 
   resources :courses do
-    resources :lessons
+    resources :lessons do
+      resources :exercises
+    end
   end
 
 
