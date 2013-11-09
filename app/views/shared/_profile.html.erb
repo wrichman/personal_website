@@ -4,7 +4,7 @@
 
               <div class="img-wrap">
                 <a href="<%= user_path(current_user) %>">
-                  <img alt="Thumb large" class="user-pic" src="http://img.thinkster.io/311033c95c660275fdbd2a4c5968f84d/ed9a9bb9e72a5bda25d16aa9c7572f17/thumb_large.jpg" />
+                  <img alt="Thumb large" class="user-pic" src="<%= current_user.image %>" />
                 </a>
                 <div style="clear:both"></div>
               </div>

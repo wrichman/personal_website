@@ -9,6 +9,7 @@ PersonalWebsite::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
 
   resources :users
+  get "/user/profile" => "users#profile", as: "user_profile"
 
   resources :courses do
     resources :lessons do

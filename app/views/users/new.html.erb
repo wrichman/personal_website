@@ -3,6 +3,9 @@
     <%= form_for @user do |f| %>
       <%= render 'shared/form_errors', :f => f %>
       <%= render 'form', :f => f %>
+      <div class="form-actions">
+        <%= f.submit 'Create Account', class: 'btn btn-primary btn-large', style: "font-weight:bolder; width:100%;margin-top:20px" %>
+      </div>
     <% end %>
   </div>
 </div>

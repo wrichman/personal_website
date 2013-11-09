@@ -13,6 +13,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to 'Profile', user_profile_path, class: 'btn' %></li>
         <li>
           <% if logged_in? %>
           <%= link_to 'Logout', "/sessions/1", :method => :delete, class: 'btn' %>
