@@ -1,7 +1,7 @@
    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
   <div class="container">
     <div class="navbar-header">
-      <a href="../" class="navbar-brand">OpenCourse</a>
+      <a href="../" class="navbar-brand">Resourcer</a>
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
@@ -20,7 +20,12 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="../about">About</a>
+          <% if logged_in? %>
+          <%= link_to 'Logout', :session, :method => :delete, class: 'btn' %>
+          <% else %>
+          <%= link_to 'Sign Up', [:new, :user], class: 'btn btn-primary' %>
+          <%= link_to 'Sign In', [:new, :session], class: 'btn btn-success' %>
+        <% end %>
         </li>
       </ul>
     </nav>
