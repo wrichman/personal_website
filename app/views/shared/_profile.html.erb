@@ -3,7 +3,7 @@
             <div class="name">
 
               <div class="img-wrap">
-                <a href="/Matt">
+                <a href="<%= user_path(current_user) %>">
                   <img alt="Thumb large" class="user-pic" src="http://img.thinkster.io/311033c95c660275fdbd2a4c5968f84d/ed9a9bb9e72a5bda25d16aa9c7572f17/thumb_large.jpg" />
                 </a>
                 <div style="clear:both"></div>
@@ -11,14 +11,14 @@
 
               
               <span class="name-full">
-                <a href="/Matt">
+                <a href="<%= user_path(current_user) %>">
                   <%= current_user.first_name %> <%= current_user.last_name %>
                 </a>
               </span>
               
 
               <div class="mini-bio">
-                Software engineer, maker, trumpet player, runner. The batteries you need are never included.
+                <%= @course.user.description %>
               </div>
               
 
@@ -42,12 +42,11 @@
             </div>
 
             <div class="share-box">
-              <a href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fwww.thinkster.io%2F&text=AngularJS%20Tutorial%3A%20Learn%20to%20Rapidly%20Build%20Real-time%20Web%20Apps%20with%20Firebase%20 %23AngularJS by @mattfriz&tw_p=tweetbutton&url=http%3A%2F%2Fwww.thinkster.io%2Fpick%2FeHPCs7s87O%2Fangularjs-tutorial-learn-to-rapidly-build-real-time-web-apps-with-firebase%3Fref%3Dtwt" class="" target="_blank">
+              <a href="<%= @course.user.twitter_profile %>" class="" target="_blank">
                 <i class="wic-twitter"></i> Tweet this
               </a>
 
-              <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.thinkster.io%2Fpick%2FeHPCs7s87O%2Fangularjs-tutorial-learn-to-rapidly-build-real-time-web-apps-with-firebase%3Fref%3Dfb" class="" target="_blank">
-                <i class="wic-facebook-squared"></i> Share on Facebook
+              <a href="<%= @course.user.facebook_profile %>"></i> Share on Facebook
               </a>
             </div>
 

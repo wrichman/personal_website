@@ -30,7 +30,7 @@ class LessonsController < ApplicationController
   end
 
  def update
-
+    
     if @lesson.update_attributes lesson_params
       redirect_to root_path, notice: "Nice! Thanks for creating #{@course.title}!"
     else
