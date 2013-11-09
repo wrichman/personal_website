@@ -44,6 +44,12 @@ end
 
 gem 'bootstrap-sass'
 
+gem "sorcery"
+
+
+
+
+
 
 
 
