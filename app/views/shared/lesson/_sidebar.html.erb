@@ -1,0 +1,36 @@
+
+   <div class="side-float" data-spy="affix">
+
+            <a class="btn btn-primary" style="font-weight:bolder;width:152px;margin-bottom:20px" href="<%= new_course_lesson_path(@course) %>" target="_blank">+ Add Exercise
+<!--               <div style="margin-top:5px;white-space: normal;font-size:12px;font-weight:normal;line-height:1.1em">Buy the eBook &amp; source code for only <strong>$25!</strong>
+              </div> -->
+            </a>
+
+
+
+   <div class="progress" style="height:25px">
+      <div class="progress-bar progress-bar-success"></div>
+    </div>
+
+<!-- make this dynamic -->
+<!-- loop through lessons, each lesson needs a reference id -->
+<!-- loop through exercises, each exercise needs a reference id -->
+<!-- if there are exercises, put them in a ul with class nav -->
+
+  <div class="bs-sidebar">
+    <ul class="nav bs-sidenav">
+
+      <li>
+        <a href="#item-<%= @lesson.title %>-<%= @lesson.id %>"><%= @lesson.title %></a>
+        <ul class="nav">
+          <% @lesson.exercises.each do |exercise| %>
+            <li><a href="#item-<%= exercise.title %>-<%= exercise.id %>"><%= exercise.title %></a></li>    
+          <% end %>
+        </ul>
+      </li>
+
+          
+    </ul>
+  </div>
+
+</div><!-- /side-float -->

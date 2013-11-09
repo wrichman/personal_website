@@ -1,4 +1,63 @@
-Lesson # show
+  <div id="content-area" class="picka-app" data-snap-ignore="true">
+    <div id="ca-click-catch"></div>
+    
+    <script>
+    user_loggedin = true;
+    pick_id = '526c4f970717fc4a8f000056';
+    totalitems = 74;
+    completed_items = [];
+    </script>
 
-<%= @lesson.title %>
-<%= @lesson.description %>
+<div class="pick-page"> <!-- page container -->
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-2 visible-lg">
+        <div class="push-top"></diV>
+        <div class="sidebar-wrap">
+          <%= render "shared/profile" %>  
+          <%= render "shared/lesson/sidebar" %>
+        </div>
+      </div>
+
+        <div class="col col-lg-8 pick-content">
+          <div class="push-top"></div>
+          <h1><%= @course.title %></h1>
+          <br>
+          
+
+          <div id="item-<%= @lesson.title %>-<%= @lesson.id %>" class="item-wrap">
+            <div class="content-wrapper">
+              <h1><%= @lesson.title %></h1>
+            </div>
+          </div>
+
+            <% if @lesson.exercises[0] != nil %>
+              <% @lesson.exercises.each do |exercise| %>
+
+                <div id="item-<%= exercise.title %>-<%= exercise.id %>" class="item-wrap">
+                  <div class="content-wrapper">
+                    <h2><%= exercise.title %></h2>
+                  </div>
+                </div>
+
+                <div id="#" class="item-wrap">
+                  <div class="content-wrapper">
+                    <p><%= exercise.body %></p>
+                  </div>
+                </div>
+                
+              <% end %>    
+          
+            <br>
+          <% end %>
+        </div>
+    </div>
+
+  </div>
+
+</div><!-- /container -->
+
+<br>
+
+
+  </div>

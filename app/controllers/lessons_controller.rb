@@ -3,7 +3,6 @@ class LessonsController < ApplicationController
 
  # before_filter :require_user
  before_filter :require_course
- before_filter :require_lesson
  before_filter :require_login
 
   def new
@@ -15,14 +14,14 @@ class LessonsController < ApplicationController
     
     if @lesson.save
       # UserMailer.new_pledge(@pledge).deliver
-      redirect_to root_path, notice: "Nice! Thanks for creating #{@course.title}!"
+      redirect_to course_path(@course), notice: "Nice! Thanks for creating #{@course.title}!"
     else
       render :new
     end
   end
 
   def show
-    @course = Course.find params[:id]
+    @course = Course.find params[:course_id]
     @lesson = Lesson.find params[:id]
   end
 
@@ -46,10 +45,6 @@ class LessonsController < ApplicationController
 
   def require_course
     @course = Course.find params[:course_id]
-  end
-
-  def require_lesson
-    @lesson = Lesson.find params[:id]
   end
 
   private
