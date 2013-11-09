@@ -9,11 +9,7 @@ PersonalWebsite::Application.routes.draw do
 
   resources :sessions, :only => [:new, :create, :destroy]
 
-  resources :users do
-    resources :courses do
-      resources :lessons
-    end
-  end
+  resources :users
 
   resources :courses do
     resources :lessons
