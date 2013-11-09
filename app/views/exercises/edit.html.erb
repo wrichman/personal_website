@@ -1,16 +1,9 @@
 <h1>Exercises#edit</h1>
 <p>Find me in app/views/exercises/edit.html.erb</p>
 
-
-<br>
-<br>
-<br>
-<br>
-<br>
-
 <h1>Exercise for <%= @lesson.title %></h1>
 
-<%= form_for [@lesson, @exercise] do |f| %>
+<%= form_for [@course, @lesson, @exercise] do |f| %>
   
   <%= render 'shared/form_errors', :f => f %>
   
@@ -21,7 +14,7 @@
   <%= f.text_field :body %>
 
   <div class="form-actions">
-    <%= f.submit 'Create Now', :class => 'btn' %>
+    <%= f.submit 'Create an exercise', :class => 'btn' %>
   </div>
 
 <% end %>

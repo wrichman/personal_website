@@ -27,7 +27,7 @@
 
           <% @lessons.each do |lesson| %>
 
-          <div id="#lesson<%= lesson.id %>" class="item-wrap">
+          <div id="item-<%= lesson.title %>-<%= lesson.id %>" class="item-wrap">
             <div class="content-wrapper">
               <h1><%= lesson.title %></h1>
             </div>
@@ -36,13 +36,13 @@
             <% if lesson.exercises[0] != nil %>
               <% lesson.exercises.each do |exercise| %>
 
-                <div id="#exercise<%= exercise.id %>" class="item-wrap">
+                <div id="item-<%= exercise.title %>-<%= exercise.id %>" class="item-wrap">
                   <div class="content-wrapper">
                     <h2><%= exercise.title %></h2>
                   </div>
                 </div>
 
-                <div id="item-526c4f970717fc4a8f000058" class="item-wrap">
+                <div id="#" class="item-wrap">
                   <div class="content-wrapper">
                     <p><%= exercise.body %></p>
                   </div>
@@ -54,6 +54,11 @@
           <% end %>
 
           
+          <div id="item-201" class="item-wrap">
+            <div class="content-wrapper">
+              <h1>Introduction</h1>
+            </div>
+          </div>
 
           <div id="item-526c4fc80717fc4a8f00005e" class="item-wrap">
             <div class="content-wrapper">
@@ -79,7 +84,7 @@
             </div>
           </div>
 
-          <div id="item-526c4fc80717fc4a8f000062" class="item-wrap">
+          <div id="item-202" class="item-wrap">
             <div class="content-wrapper">
               <h2>Source code and PDF eBook</h2>
             </div>
@@ -141,7 +146,7 @@
 
 </div>
 
-              <div id="item-526c509e0717fc431c000080" class="item-wrap">
+              <div id="item-203" class="item-wrap">
 
 
   <div class="content-wrapper">
@@ -163,7 +168,7 @@
 
 </div>
 
-              <div id="item-526c509e0717fc431c000082" class="item-wrap">
+              <div id="item-204" class="item-wrap">
 
 
   <div class="content-wrapper">
@@ -196,7 +201,7 @@
 
 </div>
 
-              <div id="item-526c514a0717fc431c00009c" class="item-wrap">
+              <div id="item-205" class="item-wrap">
 
 
   <div class="content-wrapper">
@@ -229,7 +234,7 @@
 
 </div>
 
-              <div id="item-526c50c20717fcb66f000078" class="item-wrap">
+              <div id="item-206" class="item-wrap">
 
 
   <div class="content-wrapper">
@@ -306,7 +311,7 @@
 
 </div>
 
-              <div id="item-526c51940717fc4a8f000080" class="item-wrap">
+              <div id="item-207" class="item-wrap">
 
 
   <div class="content-wrapper">
@@ -416,7 +421,7 @@
 
 </div>
 
-              <div id="item-526c51940717fc4a8f00008a" class="item-wrap">
+              <div id="item-208" class="item-wrap">
 
 
   <div class="content-wrapper">
@@ -504,7 +509,7 @@
 
 </div>
 
-              <div id="item-526c51940717fc4a8f000092" class="item-wrap">
+              <div id="item-209" class="item-wrap">
 
 
   <div class="content-wrapper">
@@ -526,7 +531,7 @@
 
 </div>
 
-              <div id="item-526c51d00717fcb66f0000a9" class="item-wrap">
+              <div id="item-100" class="item-wrap">
 
 
   <div class="content-wrapper">
@@ -717,7 +722,7 @@
 
 </div>
 
-              <div id="item-5279914b76524ee6c3000174" class="item-wrap">
+              <div id="item-101" class="item-wrap">
 
 
   <div class="content-wrapper">
@@ -739,7 +744,7 @@
 
 </div>
 
-              <div id="item-526c5b6f0717fc4a8f000114" class="item-wrap">
+              <div id="item-102" class="item-wrap">
 
 
   <div class="content-wrapper">
@@ -916,7 +921,7 @@ thinkster-firebase-tutorial/
 
 </div>
 
-              <div id="item-526c5e7b0717fcb66f000178" class="item-wrap">
+              <div id="item-103" class="item-wrap">
 
 
   <div class="content-wrapper">
@@ -978,7 +983,7 @@ thinkster-firebase-tutorial/
 
 </div>
 
-              <div id="item-526c5e7b0717fcb66f00017b" class="item-wrap">
+              <div id="item-104" class="item-wrap">
 
 
   <div class="content-wrapper">
