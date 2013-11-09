@@ -306,6 +306,11 @@ a:hover{
   color: white;
 }
 
+li i{
+  float: right;
+  margin: 0 3px;
+}
+
 
 /* Apply css when screen is between 660px and 1024px*/
 @media all and (min-width: 660px) and (max-width: 1024px ) {
