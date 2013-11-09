@@ -27,7 +27,7 @@
 
           <% @lessons.each do |lesson| %>
 
-          <div id="#" class="item-wrap">
+          <div id="#lesson<%= lesson.id %>" class="item-wrap">
             <div class="content-wrapper">
               <h1><%= lesson.title %></h1>
             </div>
@@ -36,7 +36,7 @@
             <% if lesson.exercises[0] != nil %>
               <% lesson.exercises.each do |exercise| %>
 
-                <div id="#" class="item-wrap">
+                <div id="#exercise<%= exercise.id %>" class="item-wrap">
                   <div class="content-wrapper">
                     <h2><%= exercise.title %></h2>
                   </div>

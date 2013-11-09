@@ -12,107 +12,52 @@
       <div class="progress-bar progress-bar-success"></div>
     </div>
 
+<!-- make this dynamic -->
+<!-- loop through lessons, each lesson needs a reference id -->
+<!-- loop through exercises, each exercise needs a reference id -->
+<!-- if there are exercises, put them in a ul with class nav -->
+
   <div class="bs-sidebar">
     <ul class="nav bs-sidenav">
-          <li>
-            <a href="#item-526c4f970717fc4a8f000057">
-              Introduction
-            </a>
-            <ul class="nav">
-          <li>
-            <a href="#item-526c4fc80717fc4a8f000062">
-              Source code and PDF eBook
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c509e0717fc431c000080">
-              Prerequisites
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c509e0717fc431c000082">
-              The Stack
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c514a0717fc431c00009c">
-              What is fantasy football?
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c50c20717fcb66f000078">
-              Makeup of a fantasy team
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c51940717fc4a8f000080">
-              Active Roster
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c51940717fc4a8f00008a">
-              Bench
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c51940717fc4a8f000092">
-              Recap
-            </a>
-          </li>
-              </ul>
-            </li>
-          <li>
-            <a href="#item-526c51d00717fcb66f0000a9">
-              Getting Started With Firebase
-            </a>
-            <ul class="nav">
-          <li>
-            <a href="#item-5279914b76524ee6c3000174">
-              What Am I Actually Dealing With Here?
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c5b6f0717fc4a8f000114">
-              App Directory
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c5e7b0717fcb66f000178">
-              Bower
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c5e7b0717fcb66f00017b">
-              Getting Into AngularJS
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c51d00717fcb66f0000ab">
-              Authentication with Firebase
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c89cb0717fc4a8f000192">
-              The User Model
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c8a2a0717fc4a8f0001f9">
-              Firebase Data
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c8aae0717fcb66f00020c">
-              Firebase Forge
-            </a>
-          </li>
-          <li>
-            <a href="#item-526c8b5d0717fcb66f000288">
-              Security and Permissions with Firebase
-            </a>
-          </li>
-              </ul>
-            </li>
+
+    <% @lessons.each do |lesson| %>
+      <li>
+        <a href="#lesson<%= lesson.id %>"><%= lesson.title %></a>
+        <ul class="nav">
+        <% lesson.exercises.each do |exercise| %>
+          <li><a href="#exercise<%= exercise.id %>"><%= exercise.title %></a></li>    
+        <% end %>
+        </ul>
+      </li>
+    <% end %>
+
+      <li>
+        <a href="#item-526c4f970717fc4a8f000057">Introduction</a>
+        <ul class="nav">
+          <li><a href="#item-526c4fc80717fc4a8f000062">Source code and PDF eBook</a></li>
+          <li><a href="#item-526c509e0717fc431c000080">Prerequisites</a></li>
+          <li><a href="#item-526c509e0717fc431c000082">The Stack</a></li>
+          <li><a href="#item-526c514a0717fc431c00009c">What is fantasy football?</a></li>
+          <li><a href="#item-526c50c20717fcb66f000078">Makeup of a fantasy team</a></li>
+          <li><a href="#item-526c51940717fc4a8f000080">Active Roster</a></li>
+          <li><a href="#item-526c51940717fc4a8f00008a">Bench</a></li>
+          <li><a href="#item-526c51940717fc4a8f000092">Recap</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#item-526c51d00717fcb66f0000a9">Getting Started With Firebase</a>
+        <ul class="nav">
+          <li><a href="#item-5279914b76524ee6c3000174">What Am I Actually Dealing With Here?</a></li>
+          <li><a href="#item-526c5b6f0717fc4a8f000114">App Directory</a></li>
+          <li><a href="#item-526c5e7b0717fcb66f000178">Bower</a></li>
+          <li><a href="#item-526c5e7b0717fcb66f00017b">Getting Into AngularJS</a></li>
+          <li><a href="#item-526c51d00717fcb66f0000ab">Authentication with Firebase</a></li>
+          <li><a href="#item-526c89cb0717fc4a8f000192">The User Model</a></li>
+          <li><a href="#item-526c8a2a0717fc4a8f0001f9">Firebase Data</a></li>
+          <li><a href="#item-526c8aae0717fcb66f00020c">Firebase Forge</a></li>
+          <li><a href="#item-526c8b5d0717fcb66f000288">Security and Permissions with Firebase</a></li>
+        </ul>
+      </li>
           <li>
             <a href="#item-526c8c1e0717fc4a8f000270">
               Getting Your Hands Dirty
