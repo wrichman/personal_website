@@ -1,17 +1,8 @@
-<h1>Course for <%= current_user.first_name %><%= current_user.last_name %></h1>
-
-<%= form_for @course do |f| %>
-  
-  <%= render 'shared/form_errors', :f => f %>
-  
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <div class="form-actions">
-    <%= f.submit 'Pledge Now', :class => 'btn' %>
+<div class="row">
+  <div class="col col-lg-5 col-offset-3"><h2>Edit a Course</h2>
+    <%= form_for [@user, @course] do |f| %>
+      <%= render 'shared/form_errors', :f => f %>
+      <%= render 'form', :f => f %>
+    <% end %>
   </div>
-
-<% end %>
+</div>

@@ -1,26 +1,9 @@
-<h1>Sign Up for an Account</h1>
-<p>Fill in your information below</p>
+<div class="row">
+   <div class="col col-lg-5 col-offset-3"><h2>Sign Up for an Account</h2>
+    <%= form_for @user do |f| %>
+      <%= render 'shared/form_errors', :f => f %>
+      <%= render 'form', :f => f %>
+    <% end %>
+  </div>
+</div>
 
-<hr/>
-
-
-<%= form_for @user do |f| %>
-
-        <div class="span6">
-    <%#= render 'shared/form_errors', :f => f %>
-    
-                <%= f.text_field :first_name, placeholder: "First Name", class: "input-block-level" %>
-                <%= f.text_field :last_name, placeholder: "Last Name", class: "input-block-level" %>
-                <%= f.text_field :description, placeholder: "Bio", class: "input-block-level" %>
-                <%= f.text_field :facebook_profie, placeholder: "Facebook", class: "input-block-level" %>
-                <%= f.text_field :twitter_profile, placeholder: "Twitter", class: "input-block-level" %>
-
-                <%= f.text_field :email, placeholder: "E-mail Address", class: "input-block-level" %>
-                <%= f.password_field :password, placeholder: "Password", class: "input-block-level" %>
-                
-                <div class="form-actions">
-                        <%= f.submit 'Create Account', class: 'btn btn-primary' %>
-                </div>
-        </div>
-
-<% end %>
