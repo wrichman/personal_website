@@ -41,31 +41,19 @@ mixpanel.init("a2332843c080f27a874b50067892001c");</script><!-- end Mixpanel -->
 </head>
 <body>
 
-<!-- <div class="container-fluid">
-  <div class="row-fluid">
-    <div class="span12"> -->
 
-        <% if flash[:notice] %>
-          <div class="alert alert-success">
-            <%= flash[:notice] %>
-          </div>
-        <% elsif flash[:alert] %>
-          <div class="alert alert-error">
-            <%= flash[:alert] %>
-          </div>
-        <% end %>
+<div class="container">
 
-<%= render "shared/header" %>
+  <%= render "shared/nav" %>
+  <%= render "shared/alerts" %>
 
+  <%= yield %>
 
+  <%= render "shared/footer" %>
 
-<%= yield %>
+  <%= debug params %>
 
-<%= debug params %>
-
-<!--     </div>
-  </div>
-</div> -->
+</div>
 
 
 
