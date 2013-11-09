@@ -1,0 +1,17 @@
+<h1>Course for <%= @user.first_name %><%= @user.last_name %></h1>
+
+<%= form_for [@user, @course] do |f| %>
+  
+  <%= render 'shared/form_errors', :f => f %>
+  
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <div class="form-actions">
+    <%= f.submit 'Pledge Now', :class => 'btn' %>
+  </div>
+
+<% end %>
