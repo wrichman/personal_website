@@ -6,7 +6,9 @@ PersonalWebsite::Application.routes.draw do
   root 'welcome#index'
 
   resources :users do
-    resources :courses
+    resources :courses do
+      resources :lessons
+    end
   end
 
 

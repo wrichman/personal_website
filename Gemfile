@@ -42,7 +42,7 @@ group :development do
   gem "better_errors"
 end
 
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.0.2.0'
 
 gem "sorcery"
 
