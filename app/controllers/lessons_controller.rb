@@ -1,4 +1,6 @@
 class LessonsController < ApplicationController
+ skip_before_filter :verify_authenticity_token  
+
  # before_filter :require_user
  before_filter :require_course
 
@@ -11,7 +13,7 @@ class LessonsController < ApplicationController
     
     if @lesson.save
       # UserMailer.new_pledge(@pledge).deliver
-      redirect_to root, notice: "Nice! Thanks for creating #{@course.title}!"
+      redirect_to root_path, notice: "Nice! Thanks for creating #{@course.title}!"
     else
       render :new
     end

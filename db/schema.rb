@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131109052418) do
+ActiveRecord::Schema.define(version: 20131109060437) do
 
   create_table "courses", force: true do |t|
     t.string   "title"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20131109052418) do
     t.text     "facebook_profile"
     t.text     "twitter_profile"
     t.string   "image"
+    t.string   "username"
   end
 
 end

@@ -6,7 +6,7 @@
 
 <h1>Lesson for <%= @course.title %></h1>
 
-<%= form_for [@user, @course, @lesson] do |f| %>
+<%= form_for [@course, @lesson] do |f| %>
   
   <%= render 'shared/form_errors', :f => f %>
   
