@@ -9,18 +9,18 @@
 Course.destroy_all
 Exercise.destroy_all
 Lesson.destroy_all
-# User.destroy_all
+User.destroy_all
 
-# will = User.create({
-#   email: "williamrichman@gmail.com",
-#   description: "a nerd at heart",
-#   first_name: "Will",
-#   last_name: "Richman",
-#   password: "william",
-#   facebook_profile: "https://www.facebook.com/williamrichman",
-#   twitter_profile: "https://twitter.com/will_richman",
-#   image: "https://2.gravatar.com/avatar/c3d27b8217282ab181ace47d753d76a7?d=https%3A%2F%2Fidenticons.github.com%2F83fe00bbc0602633425d8d2e17d3017e.png&r=x&s=440"
-# })
+will = User.create({
+  email: "williamrichman@gmail.com",
+  description: "a nerd at heart",
+  first_name: "Will",
+  last_name: "Richman",
+  password: "william",
+  facebook_profile: "https://www.facebook.com/williamrichman",
+  twitter_profile: "https://twitter.com/will_richman",
+  image: "https://2.gravatar.com/avatar/c3d27b8217282ab181ace47d753d76a7?d=https%3A%2F%2Fidenticons.github.com%2F83fe00bbc0602633425d8d2e17d3017e.png&r=x&s=440"
+})
 
 courses = [
   { title: "Ruby", description: "A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.", image: "http://blog.lingohub.com/wp-content/uploads/2013/08/ruby1.png"},
