@@ -23,9 +23,9 @@ Lesson.destroy_all
 # })
 
 courses = [
-  { title: "Ruby", description: "A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write."},
-  { title: "JavaScript", description: "JavaScript is a prototype-based scripting language with dynamic typing and has first-class functions."},
-  { title: "HTMLCSS", description: "HTML (the Hypertext Markup Language) and CSS (Cascading Style Sheets) are two of the core technologies for building Web pages. HTML provides the structure of the page, CSS the (visual and aural) layout, for a variety of devices. Along with graphics and scripting, HTML and CSS are the basis of building Web pages and Web Applications."}
+  { title: "Ruby", description: "A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.", image: "http://blog.lingohub.com/wp-content/uploads/2013/08/ruby1.png"},
+  { title: "JavaScript", description: "JavaScript is a prototype-based scripting language with dynamic typing and has first-class functions.", image: "http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"},
+  { title: "HTMLCSS", description: "HTML (the Hypertext Markup Language) and CSS (Cascading Style Sheets) are two of the core technologies for building Web pages. HTML provides the structure of the page, CSS the (visual and aural) layout, for a variety of devices. Along with graphics and scripting, HTML and CSS are the basis of building Web pages and Web Applications.", image: "http://www.w3.org/html/logo/downloads/HTML5_Logo_512.png"}
 ]
 
 ruby_lessons = [
