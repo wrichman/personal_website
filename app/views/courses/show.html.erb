@@ -8,17 +8,19 @@
     completed_items = [];
     </script>
 
-<div class="pick-page"> <!-- page container -->
-  <div class="container">
+<div class="pick-page"> 
+  <div class="container"><!-- page container -->
     <div class="row">
       <div class="col col-lg-2 visible-lg">
-        <div class="push-top"></diV>
+        <div class="push-top"></div>
         <div class="sidebar-wrap">
           <%= render "shared/profile" %>  
           <%= render "shared/sidebar" %>
         </div>
       </div>
 
+
+        <!-- pick content -->
         <div class="col col-lg-8 pick-content">
           <div class="push-top"></div>
           <h1><%= @course.title %></h1>
@@ -35,7 +37,6 @@
 
             <% if lesson.exercises[0] != nil %>
               <% lesson.exercises.each do |exercise| %>
-
                 <div id="item-<%= exercise.title %>-<%= exercise.id %>" class="item-wrap">
                   <div class="content-wrapper">
                     <h2><%= exercise.title %></h2>
@@ -50,47 +51,16 @@
                 
               <% end %>    
             <% end %>  
-            <br>
+          
           <% end %>
         </div>
-    </div>
+        <!-- pick content -->
 
   </div>
 
 </div><!-- /container -->
 
-<br>
-
-
-
-    
-<footer>
-  <div class="container">
-    <div class="row">
-
-      <div class="col col-lg-12">
-        &copy; 2013 Thinkster
-
-        &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-        <strong>
-          <i class="wic-twitter"></i> Follow <a href="https://twitter.com/GoThinkster" target="_blank">@GoThinkster</a>
-        </strong>
-
-        &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-
-        <span class="where-its-made">
-          Built in sunny Palo Alto <img alt="Sun" src="http://static.thinkster.io/assets/sun-0425fa037da744ac88f915390e167cdb.png" />
-        </span>
-
-
-        <div class="dome">&nbsp;</div>
-
-      </div>
-
-
-    </div>
-  </div>
-</footer>
+  <div class="dome">&nbsp;</div>
 
 
   </div>
