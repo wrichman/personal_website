@@ -30,6 +30,7 @@
           <% @lessons.each do |lesson| %>
 
           <div id="item-<%= lesson.title %>-<%= lesson.id %>" class="item-wrap">
+
             <div class="content-wrapper">
               <h1><%= link_to "#{lesson.title}", course_lesson_path(@course, lesson) %></h1>
             </div>
@@ -38,6 +39,32 @@
             <% if lesson.exercises[0] != nil %>
               <% lesson.exercises.each do |exercise| %>
                 <div id="item-<%= exercise.title %>-<%= exercise.id %>" class="item-wrap">
+
+
+            <% if exercise.id % 3 == 0 %>
+              <div class="task-wrapper">
+                <div data-cbid="51e79b88ee7206e06b000009" class="task-box cbox-trigger cbid-51e79b88ee7206e06b000009 completed">
+                  <div class="mark animated bounceIn">
+                    <i class="wic-ok"></i>
+                  </div>
+                </div>
+              </div>
+            <% else %>
+              <div class="task-wrapper">
+                <div data-cbid="51e797046646e9640500000e" class="task-box cbox-trigger cbid-51e797046646e9640500000e" data-original-title="" title="">
+                  <div class="mark">
+                    <i class="wic-ok"></i>
+                  </div>
+                </div>
+                <!-- <div class="tooltip fade top in" style="top: 3617.111328125px; left: -50.513851165771484px; display: block;"><div class="tooltip-arrow"></div>
+                <div class="tooltip-inner"><div id="firstshow" style="width:150px">Check these boxes to keep track of your progress</div></div></div> -->
+              </div>
+            <% end %>
+
+    
+
+
+
                   <div class="content-wrapper">
                     <h2><%= exercise.title %></h2>
                   </div>
