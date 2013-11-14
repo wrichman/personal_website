@@ -31,7 +31,7 @@
 
           <div id="item-<%= lesson.title %>-<%= lesson.id %>" class="item-wrap">
             <div class="content-wrapper">
-              <h1><%= link_to lesson.title, course_lesson_path(@course, lesson) %></h1>
+              <h1><%= link_to "#{lesson.title}", course_lesson_path(@course, lesson) %></h1>
             </div>
           </div>
 

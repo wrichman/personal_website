@@ -2332,7 +2332,8 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
   font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0
   }
   .affix{
-  position:fixed
+  position:fixed;
+  margin-top: 40px;
   }
   @-ms-viewport{
   width:device-width
@@ -2340,7 +2341,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
   @media screen and (max-width:400px){
   @-ms-viewport{
   width:320px
-}
+  }
 
   }
   .hidden{
