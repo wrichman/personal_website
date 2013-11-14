@@ -16,7 +16,7 @@ class ExercisesController < ApplicationController
     
     if @exercise.save
       # UserMailer.new_pledge(@pledge).deliver
-      redirect_to root_path, notice: "Nice! Thanks for creating #{@exercise.title}!"
+      redirect_to course_path(@course), notice: "Nice! Thanks for creating #{@exercise.title}!"
     else
       render :new
     end
