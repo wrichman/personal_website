@@ -11,7 +11,7 @@ Exercise.destroy_all
 Lesson.destroy_all
 User.destroy_all
 
-will = User.create({
+User.create({
   email: "williamrichman@gmail.com",
   description: "a nerd at heart",
   first_name: "Will",
@@ -22,10 +22,21 @@ will = User.create({
   image: "https://2.gravatar.com/avatar/c3d27b8217282ab181ace47d753d76a7?d=https%3A%2F%2Fidenticons.github.com%2F83fe00bbc0602633425d8d2e17d3017e.png&r=x&s=440"
 })
 
+User.create({
+  email: "bobrichman@gmail.com",
+  description: "a nerd at heart",
+  first_name: "Bob",
+  last_name: "Richman",
+  password: "bob",
+  facebook_profile: "https://www.facebook.com/williamrichman",
+  twitter_profile: "https://twitter.com/will_richman",
+  image: "https://2.gravatar.com/avatar/c3d27b8217282ab181ace47d753d76a7?d=https%3A%2F%2Fidenticons.github.com%2F83fe00bbc0602633425d8d2e17d3017e.png&r=x&s=440"
+})
+
 courses = [
-  { title: "Ruby", description: "A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.", image: "http://blog.lingohub.com/wp-content/uploads/2013/08/ruby1.png"},
-  { title: "JavaScript", description: "JavaScript is a prototype-based scripting language with dynamic typing and has first-class functions.", image: "http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"},
-  { title: "HTMLCSS", description: "HTML (the Hypertext Markup Language) and CSS (Cascading Style Sheets) are two of the core technologies for building Web pages. HTML provides the structure of the page, CSS the (visual and aural) layout, for a variety of devices. Along with graphics and scripting, HTML and CSS are the basis of building Web pages and Web Applications.", image: "http://www.w3.org/html/logo/downloads/HTML5_Logo_512.png"}
+  { title: "Python", description: "A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.", image: "http://blog.lingohub.com/wp-content/uploads/2013/08/ruby1.png"},
+  { title: "Lisp", description: "JavaScript is a prototype-based scripting language with dynamic typing and has first-class functions.", image: "http://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"},
+  { title: "Design", description: "HTML (the Hypertext Markup Language) and CSS (Cascading Style Sheets) are two of the core technologies for building Web pages. HTML provides the structure of the page, CSS the (visual and aural) layout, for a variety of devices. Along with graphics and scripting, HTML and CSS are the basis of building Web pages and Web Applications.", image: "http://www.w3.org/html/logo/downloads/HTML5_Logo_512.png"}
 ]
 
 ruby_lessons = [
@@ -59,6 +70,7 @@ sample_exercises = [
 ]
 
 will = User.first
+bob = User.all[1]
 
 will.courses.create courses
 
@@ -78,4 +90,21 @@ will.courses[2].lessons.each do |lesson|
   lesson.exercises.create sample_exercises
 end
 
+bob.courses.create courses
+
+bob.courses[0].lessons.create ruby_lessons
+bob.courses[1].lessons.create javascript_lessons
+bob.courses[2].lessons.create html_lessons
+
+bob.courses[0].lessons.each do |lesson|
+  lesson.exercises.create sample_exercises
+end
+
+bob.courses[1].lessons.each do |lesson|
+  lesson.exercises.create sample_exercises
+end
+
+bob.courses[2].lessons.each do |lesson|
+  lesson.exercises.create sample_exercises
+end
 

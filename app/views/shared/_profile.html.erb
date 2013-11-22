@@ -9,20 +9,16 @@
                 <div style="clear:both"></div>
               </div>
 
-              
               <span class="name-full">
                 <a href="<%= user_path(current_user) %>">
-                  <%= current_user.first_name %> <%= current_user.last_name %>
+                  <%= @course.user.first_name %> <%= @course.user.last_name %>
                 </a>
               </span>
               
-
               <div class="mini-bio">
                 <%= @course.user.description %>
               </div>
               
-
-
             </div>
 
             <div class="alert alert-warning sub-wrapper">

@@ -24,5 +24,26 @@ Things you may want to cover:
 * ...
 
 
+Resource Types
+
+- game
+- book
+- documentary
+- article
+- guide
+- image
+- blog
+- community
+- slide deck
+- tool
+- resource
+- audio presentation + slides
+- video
+- tutorial
+- video series
+
+- until subscribed to, each course is its own splash page!!@!!!!!@@!@#
+
+
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
