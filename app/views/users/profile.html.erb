@@ -10,7 +10,7 @@
 
         <div class="col col-lg-2 col-offset-1">
           <div class="prof-pic-holder">
-            <img alt="Def 160" src="http://static.thinkster.io/assets/def-160-e47d0c2a75231777133d120c94b9e5e6.png" />
+            <img alt="Def 160" src="<%= current_user.image %>" />
           </div>
         </div>
 
@@ -46,21 +46,42 @@
       <div class="col col-lg-10 col-offset-1">
 
 
+        Courses You Have Created 
 
-            <div class="post">
-              <a href="/pick/GUIDJbpIie/angularjs-tutorial-learn-to-build-modern-web-apps">
-                <div class="post-title">
-                  AngularJS Tutorial: Learn to Build Modern Web Apps  <span style="color:#999;font-size:20px">(4% complete)</span>
+        <% current_user.courses.each do |course| %>
+          <br><%= course.title %><br>
+          <%= course.subscribers.count %> follower
+        <% end %>
+
+
+        <br><br><br>
+
+
+          Courses You Are Taking
+            <% current_user.subscriber_relationships.each do |subscription| %>
+                  <% count = 0 %>
+                  <% subscription.course.exercises.each do |exercise|  %>
+                   <% if exercise.complete?(current_user) != nil %> 
+                    <% count += 1 %>
+                    <% end %>
+                  <% end %>
+              <div class="post">
+             <div class="post-title">
+                  <%= link_to subscription.course.title, course_path(subscription.course) %>  <span style="color:#999;font-size:20px">(<%= (count.to_f / subscription.course.exercises.count)*100  %>% complete)</span>
+
                 </div>
-                <div class="post-body">
-                  <div class="progress" style="height:40px;max-width:485px">
-                    <div class="progress-bar progress-bar-success" style="width: 4.301075268817205%;"></div>
-                  </div>
-                </div>
-              </a>
-            </div>
+                Created by <%= subscription.course.creator.first_name %> <%= subscription.course.creator.last_name %>
+              
 
+      <div class="progress" style="height:40px;max-width:485px">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= (count.to_f / subscription.course.exercises.count)*100  %>%;">
+            <span class="sr-only">60% Complete</span>
+          </div>
+      </div>
 
+      </div>
+
+            <% end %>
 
       </div>
     </div>

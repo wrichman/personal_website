@@ -15,7 +15,7 @@
 
         <% @user.courses.each do |course| %>
           <div class="col-md-4 portfolio-item">
-            <a href="<%= course_path(course) %>"><img class="img-responsive" src="<%= course.image %>" style="width:300px;"></a>
+            <a href="<%= course_path(course) %>"><img class="img-responsive" src="<%= course.image %>" style="width:200px;height:200px"></a>
             <h3><a href="<%= course_path(course) %>"><%= course.title %></a></h3>
             <p><%= course.description %></p>
           </div>

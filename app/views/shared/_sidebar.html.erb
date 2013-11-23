@@ -23,9 +23,9 @@
           <% count += 1 %>
           <% end %>
         <% end %>
-        <%= count.to_f  %>
-        <%= @course.exercises.count  %>
-        <%= (count.to_f / @course.exercises.count)*100  %>
+        <%#= count.to_f  %>
+        <%#= @course.exercises.count  %>
+        <%#= (count.to_f / @course.exercises.count)*100  %>
 
       <div class="progress">
           <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= (count.to_f / @course.exercises.count)*100  %>%;">

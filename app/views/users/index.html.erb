@@ -7,24 +7,17 @@
 
       </div>
 
+      <div class="row">
 
-      <% @users.each do |user| %>
-
-        <div class="row">        
-          <div class="col-lg-7 col-md-7">
-            <a href="#"><img class="img-responsive" src="http://spotfirecommunity.tibco.com/community/blogs/tips/selfDrilling_1.png"></a>
+        <% @users.each do |user| %>
+          <div class="col-lg-4 col-sm-6">
+            <img class="img-circle img-responsive" style="height:200px;width:200px" src="<%= user.image %>">
+              <h3><%= user.first_name %> <%= user.last_name %> <small><%= user.description %></small></h3>
+              <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+              <% user.courses.each do |course| %>
+                <a class="btn btn-primary" href="<%= course_path(course) %>"><%= course.title %> <span class="glyphicon glyphicon-chevron-right"></span></a>
+              <% end %>
           </div>
-
-          <div class="col-lg-5 col-md-5">
-            <h3><%= user.first_name %> <%= user.last_name %></h3>
-            <h4><%= user.description %></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-
-            <% user.courses.each do |course| %>
-              <a class="btn btn-primary" href="<%= course_path(course) %>"><%= course.title %> <span class="glyphicon glyphicon-chevron-right"></span></a>
-            <% end %>
-
-          </div>
-        </div>
-        <hr>
-      <% end %>
+        <% end %>
+        
+      </div>
