@@ -1,7 +1,18 @@
 
   <div class="side-float" data-spy="affix">
 
-  <a class="btn btn-primary" style="font-weight:bolder;width:152px;margin-bottom:20px" href="<%= new_course_lesson_path(@course) %>">+ Follow Course</a>
+  <% if current_user.subscribed?(@course) %>
+    <%= form_for(current_user.subscriber_relationships.find_by(course_id: @course.id), html: { method: :delete }) do |f| %>
+      <%= f.submit "Unfollow Course", class: "btn btn-primary", style: "font-weight:bolder;width:152px;margin-bottom:20px" %>
+    <% end %>
+  <% else %>
+    <%= form_for(current_user.relationships.build(course_id: @course.id, subscriber_id: current_user.id)) do |f| %>
+      <div><%= f.hidden_field :subscriber_id %></div>
+      <div><%= f.hidden_field :course_id %></div>
+      <%= f.submit "Follow Course", class: "btn btn-primary", style: "font-weight:bolder;width:152px;margin-bottom:20px;background:lightgreen" %>
+    <% end %>
+  <% end %>
+
   <a class="btn btn-primary" style="font-weight:bolder;width:152px;margin-bottom:20px" href="<%= new_course_lesson_path(@course) %>">+ Add Lesson</a>
   
 

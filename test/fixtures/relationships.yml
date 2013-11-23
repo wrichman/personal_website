@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  creator_id: 1
+  course_id: 1
+  subscriber_id: 1
+
+two:
+  creator_id: 1
+  course_id: 1
+  subscriber_id: 1

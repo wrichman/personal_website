@@ -5,10 +5,16 @@ PersonalWebsite::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root :to => 'users#index'
 
-
+  resources :relationships, only: [:create, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]
 
-  resources :users
+  resources :users do
+    member do
+      get :subscribing
+    end
+  end
+
+
   get "/user/profile" => "users#profile", as: "user_profile"
 
   resources :courses do
@@ -16,6 +22,8 @@ PersonalWebsite::Application.routes.draw do
       resources :exercises
     end
   end
+
+
 
 
   # Example of regular route:
