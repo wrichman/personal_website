@@ -11,12 +11,12 @@
 
               <span class="name-full">
                 <a href="<%= user_path(current_user) %>">
-                  <%#= @course.creator.first_name %> <%#= @course.creator.last_name %>
+                  <%= @course.creator.first_name %> <%= @course.creator.last_name %>
                 </a>
               </span>
               
               <div class="mini-bio">
-                <%#= @course.creator.description %>
+                <%= @course.creator.description %>
               </div>
               
             </div>
@@ -38,11 +38,11 @@
             </div>
 
             <div class="share-box">
-              <a href="<%#= @course.creator.twitter_profile %>" class="" target="_blank">
+              <a href="<%= @course.creator.twitter_profile %>" class="" target="_blank">
                 <i class="wic-twitter"></i> Tweet this
               </a>
 
-              <a href="<%#= @course.creator.facebook_profile %>">
+              <a href="<%= @course.creator.facebook_profile %>">
                 <i class="wic-facebook-squared"></i>Share on Facebook
               </a>
             </div>

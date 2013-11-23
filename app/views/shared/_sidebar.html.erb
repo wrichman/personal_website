@@ -13,8 +13,9 @@
     <% end %>
   <% end %>
 
+  <% if current_user == @course.creator %>
   <a class="btn btn-primary" style="font-weight:bolder;width:152px;margin-bottom:20px" href="<%= new_course_lesson_path(@course) %>">+ Add Lesson</a>
-  
+  <% end %>
 
   <div class="progress" style="height:25px">
     <div class="progress-bar progress-bar-success"></div>

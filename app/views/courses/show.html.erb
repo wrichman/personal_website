@@ -39,27 +39,40 @@
             <% if lesson.exercises[0] != nil %>
               <% lesson.exercises.each do |exercise| %>
                 <div id="item-<%= exercise.title %>-<%= exercise.id %>" class="item-wrap">
+                <%= exercise.complete?(current_user).inspect %>
 
 
-            <% if exercise.id % 3 == 0 %>
+
+            <% if exercise.complete?(current_user) %>
+              <%= form_for(current_user.completeds.find_by(exercise_id: exercise.id), html: { method: :delete }) do |f| %>
+                <%= f.submit "Uncomplete Exercise", class: "btn btn-primary", style: "font-weight:bolder;width:152px;margin-bottom:20px" %>
+              <% end %>
+            <% else %>
+              <%= form_for(current_user.completeds.build(user_id: current_user.id, exercise_id: exercise.id)) do |f| %>
+                <div><%= f.hidden_field :user_id %></div>
+                <div><%= f.hidden_field :exercise_id %></div>
+                <%= f.submit "Complete Exercise", class: "btn btn-primary", style: "font-weight:bolder;width:152px;margin-bottom:20px;background:lightgreen" %>
+              <% end %>
+            <% end %>
+
+
+            <%# if exercise.id % 3 == 0 %>
               <div class="task-wrapper">
-                <div data-cbid="51e79b88ee7206e06b000009" class="task-box cbox-trigger cbid-51e79b88ee7206e06b000009 completed">
+                <div class="task-box cbox-trigger completed">
                   <div class="mark animated bounceIn">
                     <i class="wic-ok"></i>
                   </div>
                 </div>
               </div>
-            <% else %>
+            <%# else %>
               <div class="task-wrapper">
-                <div data-cbid="51e797046646e9640500000e" class="task-box cbox-trigger cbid-51e797046646e9640500000e" data-original-title="" title="">
+                <div class="task-box cbox-trigger" data-original-title="" title="">
                   <div class="mark">
                     <i class="wic-ok"></i>
                   </div>
                 </div>
-                <!-- <div class="tooltip fade top in" style="top: 3617.111328125px; left: -50.513851165771484px; display: block;"><div class="tooltip-arrow"></div>
-                <div class="tooltip-inner"><div id="firstshow" style="width:150px">Check these boxes to keep track of your progress</div></div></div> -->
               </div>
-            <% end %>
+            <%# end %>
 
     
 

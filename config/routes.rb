@@ -6,6 +6,7 @@ PersonalWebsite::Application.routes.draw do
   root :to => 'users#index'
 
   resources :relationships, only: [:create, :destroy]
+  resources :completeds, only: [:create, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]
 
   resources :users do
