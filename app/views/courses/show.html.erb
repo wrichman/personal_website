@@ -24,8 +24,7 @@
         <div class="col col-lg-8 pick-content">
           <div class="push-top"></div>
           <h1><%= @course.title %></h1>
-          <br>
-          
+          <br>          
 
           <% @lessons.each do |lesson| %>
 
@@ -39,7 +38,7 @@
             <% if lesson.exercises[0] != nil %>
               <% lesson.exercises.each do |exercise| %>
                 <div id="item-<%= exercise.title %>-<%= exercise.id %>" class="item-wrap">
-                <%= exercise.complete?(current_user).inspect %>
+                <%#= exercise.complete?(current_user).inspect %>
 
 
 
@@ -57,7 +56,7 @@
 
 
             <%# if exercise.id % 3 == 0 %>
-              <div class="task-wrapper">
+             <!--  <div class="task-wrapper">
                 <div class="task-box cbox-trigger completed">
                   <div class="mark animated bounceIn">
                     <i class="wic-ok"></i>
@@ -71,7 +70,7 @@
                     <i class="wic-ok"></i>
                   </div>
                 </div>
-              </div>
+              </div> -->
             <%# end %>
 
     
