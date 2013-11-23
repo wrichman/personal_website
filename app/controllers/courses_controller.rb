@@ -3,6 +3,10 @@ class CoursesController < ApplicationController
 
   before_filter :require_login
 
+  def index
+    @courses = Course.all
+  end
+
   def new
     @course = current_user.courses.build
   end
