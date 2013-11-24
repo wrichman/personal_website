@@ -16,7 +16,7 @@ PersonalWebsite::Application.routes.draw do
   end
 
 
-  get "/user/profile" => "users#profile", as: "user_profile"
+  # get "/user/profile" => "users#profile", as: "user_profile"
 
   resources :courses do
     resources :lessons do

@@ -175,10 +175,10 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
   font-family:inherit;font-size:inherit;line-height:inherit
   }
   a{
-  color:#7ca1e8;text-decoration:none
+  color:white;text-decoration:none
   }
   a:hover,a:focus{
-  color:#3b72dd;text-decoration:underline
+  color:white;text-decoration:none
   }
   a:focus{
   outline:thin dotted #333;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px
@@ -1234,7 +1234,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
   margin:-15px -15px 15px;padding:10px 15px;font-size:17.5px;font-weight:500;background-color:#f5f5f5;border-bottom:1px solid #ddd;border-top-left-radius:3px;border-top-right-radius:3px
   }
   .panel-footer{
-  margin:15px -15px -15px;padding:10px 15px;background-color:#f5f5f5;border-top:1px solid #ddd;border-bottom-left-radius:3px;border-bottom-right-radius:3px
+  margin:15px -15px -15px;padding:10px 15px;background-color:none;border-top:1px solid #ddd;border-bottom-left-radius:3px;border-bottom-right-radius:3px
   }
   .panel-primary{
   border-color:#7ca1e8
@@ -2489,7 +2489,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
   border-bottom-right-radius:0!important;border-bottom-left-radius:0!important
   }
   footer{
-  padding:15px 0 30px 0;margin-top:60px;color:#999;font-size:12px
+  padding:15px 0 30px 0;margin-top:60px;font-size:12px
   }
   footer .where-its-made{
   color:#999
@@ -2519,13 +2519,13 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
   width:100%;padding-top:40px
   }
   .pick-page .pick-content{
-  font-family:'Noto Serif',serif;font-size:22px;margin-top:20px
+  font-family:'Noto Serif',serif;font-size:12px;margin-top:20px
   }
   .pick-page .pick-content .share-btns{
   margin-top:60px;font-family:'PT Sans Caption',sans-serif;font-weight:900!important
   }
   .pick-page .pick-content p{
-  font-size:22px;color:#333;margin-bottom:30px
+  font-size:18px;color:#333;margin-bottom:30px
   }
   .pick-page .pick-content h1,h2,h3{
   font-weight:700

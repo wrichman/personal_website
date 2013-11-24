@@ -1,13 +1,10 @@
    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
   <div class="container">
     <div class="navbar-header">
-      <a href="../" class="navbar-brand">Resourcer</a>
+      <a href="../" class="navbar-brand">Cur8</a>
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <li class="active">
-          <a href="<%= user_path(current_user) %>">My Courses</a>
-        </li>
         <li>
           <a href="<%= users_path %>">Curators</a>
         </li>
@@ -15,12 +12,12 @@
           <a href="<%= courses_path %>">Courses</a>
         </li>
         <li>
-          <a href="<%= new_course_path %>">Add Course</a>
+          <a href="<%= new_course_path %>">+ Create Course</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
-          <li><%= link_to current_user.first_name, user_profile_path, class: 'btn' %></li>
+          <li><%= link_to current_user.first_name, user_path(current_user), class: 'btn' %></li>
           <li><%= link_to 'Logout', "/sessions/1", :method => :delete, class: 'btn' %></li>
         <% else %>
           <li><%= link_to 'Sign Up', [:new, :user], class: 'btn' %></li>

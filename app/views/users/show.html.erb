@@ -1,28 +1,116 @@
-  <div class="container">
+<div class="profile-page"> <!-- page container -->
 
-      <div class="row">
+  <div class="user-banner" style="background:#7ca1e8">
 
-        <div class="col-lg-12">
-          <h1 class="page-header"><%= @user.first_name %> <%= @user.last_name %> <small><%= @user.description %></small></h1>
+  </div>
+
+  <div class="user-row">
+    <div class="container">
+      <div class="row bar-height-lock">
+
+        <div class="col col-lg-2 col-offset-1">
+          <div class="prof-pic-holder">
+            <img alt="Def 160" src="<%= @user.image %>" />
+          </div>
+        </div>
+
+        <div class="col col-lg-4">
+          <div class="full-name">
+            <%= @user.first_name %>
+            <%= @user.last_name %>
+          </div>
+
+          <div class="mini-bio">
+            <%= @user.description %>
+          </div>
+
+          <div class="social-links">
+            <i class="wic-twitter" href="<%= @user.twitter_profile %>"></i>
+            <i class="wic-facebook-squared" href="<%= @user.facebook_profile %>"></i>
+          </div>
           
-          
-        
+        </div>
+
+        <div class="col col-lg-2">
+          <form action="/profile" class="button_to" method="get"><div>
+          <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary btn-small", style: "font-weight:bolder;margin-top:15px;width:100%" %>
         </div>
 
       </div>
+    </div>
+  </div>
 
-      <div class="row">
 
-        <% @user.courses.each do |course| %>
-          <div class="col-md-4 portfolio-item">
-            <a href="<%= course_path(course) %>"><img class="img-responsive" src="<%= course.image %>" style="width:200px;height:200px"></a>
-            <h3><a href="<%= course_path(course) %>"><%= course.title %></a></h3>
-            <p><%= course.description %></p>
+  <div class="container user-content">
+    <div class="row">
+         <div class="row">
+
+
+                <div class="col-lg-12">
+          <h1 class="page-header">Courses You Have Subscribed To</h1>
+        </div>
+            <% @user.subscriber_relationships.each do |subscription| %>
+                  <% count = 0 %>
+                  <% subscription.course.exercises.each do |exercise|  %>
+                   <% if exercise.complete?(@user) != nil %> 
+                    <% count += 1 %>
+                    <% end %>
+                  <% end %>
+              <div class="post">
+             <div class="post-title">
+                  <%= link_to subscription.course.title, course_path(subscription.course) %>  <span style="color:#999;font-size:20px">(<%= ((subscription.course.exercises.count.to_f / subscription.course.exercises.count)*100)  %>% complete)</span>
+
+                </div>
+                Created by <%= subscription.course.creator.first_name %> <%= subscription.course.creator.last_name %>
+              
+
+      <div class="progress" style="height:40px;max-width:485px">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= (count.to_f / subscription.course.exercises.count)*100.to_i  %>%;">
+            <span class="sr-only">60% Complete</span>
           </div>
-        <% end %>
+      </div>
 
       </div>
 
-      <hr>
+            <% end %>
+
+
+
+
+      
+        <div class="col-lg-12">
+          <h1 class="page-header">Courses You Have Created</h1>
+        </div>
+
+        <% @user.courses.each do |course| %>
+          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="<%= course_path(course) %>"><img class="img-responsive" style="height:187px;width:200px" src="<%= course.image %>">
+              <h5><%= course.title %></h5>
+              <%= link_to "Edit Course", edit_course_path(course) %>
+
+          <div class="row">
+            <div class="col-md-12">
+            <small><%= truncate(course.description, length: 150) %></small>
+              <div class="row">
+                <div class="col-md-6">
+                <%= course.subscribers.count*19 %> subscribers
+                </div>
+                <div class="col-md-6">
+                <%= course.creator.first_name %> <%= course.creator.last_name %>
+                </div>
+              </div>
+            </div>
+          </div>
+            </a>
+          </div>
+
+
+        <% end %>
+
+
+</div>
 
     </div>
+  </div>
+
+</div>

@@ -12,10 +12,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = current_user.courses.build course_params
-    @course.user = current_user
-    
-    if @course.save
+    if @course = current_user.courses.create(course_params)
       # UserMailer.new_pledge(@pledge).deliver
       redirect_to user_path(current_user), notice: "Nice! Thanks for creating #{@course.title}!"
     else
@@ -30,7 +27,7 @@ class CoursesController < ApplicationController
   def update
     @course = Course.find params[:id]
     if @course.update_attributes course_params
-      redirect_to root_path, notice: "Nice! Thanks for updating #{@course.title}!"
+      redirect_to courses_path, notice: "Nice! Thanks for updating #{@course.title}!"
     else
       render :edit
     end
@@ -44,6 +41,6 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:title, :description)
+    params.require(:course).permit(:title, :description, :image)
   end
 end

@@ -43,21 +43,12 @@
 
   <div class="container user-content">
     <div class="row">
-      <div class="col col-lg-10 col-offset-1">
+         <div class="row">
 
 
-        Courses You Have Created 
-
-        <% current_user.courses.each do |course| %>
-          <br><%= course.title %><br>
-          <%= course.subscribers.count %> follower
-        <% end %>
-
-
-        <br><br><br>
-
-
-          Courses You Are Taking
+                <div class="col-lg-12">
+          <h1 class="page-header">Courses You Have Subscribed To</h1>
+        </div>
             <% current_user.subscriber_relationships.each do |subscription| %>
                   <% count = 0 %>
                   <% subscription.course.exercises.each do |exercise|  %>
@@ -83,7 +74,42 @@
 
             <% end %>
 
-      </div>
+
+
+
+      
+        <div class="col-lg-12">
+          <h1 class="page-header">Courses You Have Created</h1>
+        </div>
+
+        <% current_user.courses.each do |course| %>
+          <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+            <a class="thumbnail" href="<%= course_path(course) %>"><img class="img-responsive" style="height:187px;width:200px" src="<%= course.image %>">
+              <h3><%= course.title %></h3>
+              
+
+          <div class="row">
+            <div class="col-md-12">
+            <small><%= truncate(course.description, length: 150) %></small>
+              <div class="row">
+                <div class="col-md-6">
+                <%= course.subscribers.count %> subscribers
+                </div>
+                <div class="col-md-6">
+                <%= course.creator.first_name %> <%= course.creator.last_name %>
+                </div>
+              </div>
+            </div>
+          </div>
+            </a>
+          </div>
+
+
+        <% end %>
+
+
+</div>
+
     </div>
   </div>
 

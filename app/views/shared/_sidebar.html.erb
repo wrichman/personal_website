@@ -1,16 +1,17 @@
 
   <div class="side-float" data-spy="affix">
-
+<% unless current_user == @course.creator %>
   <% if current_user.subscribed?(@course) %>
     <%= form_for(current_user.subscriber_relationships.find_by(course_id: @course.id), html: { method: :delete }) do |f| %>
-      <%= f.submit "Unfollow Course", class: "btn btn-primary", style: "font-weight:bolder;width:152px;margin-bottom:20px" %>
+      <%= f.submit "Unfollow Course", class: "btn btn-primary", style: "font-weight:bolder;width:152px;margin-bottom:20px;background:#3498DB" %>
     <% end %>
   <% else %>
     <%= form_for(current_user.relationships.build(course_id: @course.id, subscriber_id: current_user.id)) do |f| %>
       <div><%= f.hidden_field :subscriber_id %></div>
       <div><%= f.hidden_field :course_id %></div>
-      <%= f.submit "Follow Course", class: "btn btn-primary", style: "font-weight:bolder;width:152px;margin-bottom:20px;background:lightgreen" %>
+      <%= f.submit "Follow Course", class: "btn btn-primary", style: "font-weight:bolder;width:152px;margin-bottom:20px;background:#34495E" %>
     <% end %>
+  <% end %>
   <% end %>
 
   <% if current_user == @course.creator %>
@@ -23,9 +24,7 @@
           <% count += 1 %>
           <% end %>
         <% end %>
-        <%#= count.to_f  %>
-        <%#= @course.exercises.count  %>
-        <%#= (count.to_f / @course.exercises.count)*100  %>
+        
 
       <div class="progress">
           <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= (count.to_f / @course.exercises.count)*100  %>%;">
@@ -41,7 +40,7 @@
         <a href="#item-<%= lesson.title %>-<%= lesson.id %>"><%= lesson.title %></a>
         <ul class="nav">
           <% lesson.exercises.each do |exercise| %>
-            <li><a href="#item-<%= exercise.title %>-<%= exercise.id %>"><%= exercise.title %></a></li>    
+            <li><a href="#item-<%= exercise.title.strip %>-<%= exercise.id %>"><%= exercise.title %></a></li>    
           <% end %>
         </ul>
       </li>

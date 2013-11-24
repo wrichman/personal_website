@@ -3,9 +3,6 @@
     
     <script>
     user_loggedin = true;
-    pick_id = '526c4f970717fc4a8f000056';
-    totalitems = 74;
-    completed_items = [];
     </script>
 
 <div class="pick-page"> 
@@ -23,7 +20,10 @@
         <!-- pick content -->
         <div class="col col-lg-8 pick-content">
           <div class="push-top"></div>
-          <h1><%= @course.title %></h1>
+          <h1><%= @course.title %> </h1>
+          <% if @course.creator == current_user  %>
+           <%= link_to "Edit Course", edit_course_path(@course) %>
+          <% end %>
           <br>          
 
           <% @lessons.each do |lesson| %>
@@ -31,27 +31,28 @@
           <div id="item-<%= lesson.title %>-<%= lesson.id %>" class="item-wrap">
 
             <div class="content-wrapper">
-              <h1><%= link_to "#{lesson.title}", course_lesson_path(@course, lesson) %></h1>
+              <h3><%="#{lesson.title}" %></h3><%= link_to "Edit Lesson", edit_course_lesson_path(@course, lesson) %>
+              <%#= link_to "#{lesson.title}", course_lesson_path(@course, lesson) %>
             </div>
           </div>
 
             <% if lesson.exercises[0] != nil %>
               <% lesson.exercises.each do |exercise| %>
-                <div id="item-<%= exercise.title %>-<%= exercise.id %>" class="item-wrap">
-                <%#= exercise.complete?(current_user).inspect %>
+                <div id="item-<%= exercise.title.strip %>-<%= exercise.id %>" class="item-wrap">
 
-
-
+                
+            <% unless current_user == @course.creator %>
             <% if exercise.complete?(current_user) %>
               <%= form_for(current_user.completeds.find_by(exercise_id: exercise.id), html: { method: :delete }) do |f| %>
-                <%= f.submit "Uncomplete Exercise", class: "btn btn-primary", style: "font-weight:bolder;width:152px;margin-bottom:20px" %>
+                <%= f.submit "Uncomplete Exercise", class: "btn btn-primary", style: "font-weight:bolder;width:152px;margin-bottom:20px;background:#3498DB" %>
               <% end %>
             <% else %>
               <%= form_for(current_user.completeds.build(user_id: current_user.id, exercise_id: exercise.id)) do |f| %>
                 <div><%= f.hidden_field :user_id %></div>
                 <div><%= f.hidden_field :exercise_id %></div>
-                <%= f.submit "Complete Exercise", class: "btn btn-primary", style: "font-weight:bolder;width:152px;margin-bottom:20px;background:lightgreen" %>
+                <%= f.submit "Complete Exercise", class: "btn btn-primary", style: "font-weight:bolder;width:152px;margin-bottom:20px;background:#2ECC71" %>
               <% end %>
+            <% end %>
             <% end %>
 
 
@@ -78,7 +79,7 @@
 
 
                   <div class="content-wrapper">
-                    <h2><%= exercise.title %></h2>
+                    <h3><%= exercise.title %></h3>  <%= link_to "Edit Exercise", edit_course_lesson_exercise_path(@course, lesson, exercise) %>
                   </div>
                 </div>
 

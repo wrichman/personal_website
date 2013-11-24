@@ -8,6 +8,10 @@ class User < ActiveRecord::Base
   has_many :completeds
   has_many :exercises, through: :completeds
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
   def subscribe!(user, course)
     Relationship.create(subscriber_id: user.id, course_id: course.id)
   end
