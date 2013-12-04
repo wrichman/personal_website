@@ -33,6 +33,8 @@
           <% course.lessons.each do |lesson| %>
             <a href="http://www.dess-e.com/ladies-learning-ruby#1"><li style="background:<%= dark_color_backgrounds[count] %>"> <%= lesson.title %></li></a>
           <% end %>
+          <a style="color:white"><%= course.subscribers.count %> subscriber</a>
+          <!-- <% course.creator %> -->
         </ul>
       </div>
     </div>
@@ -43,4 +45,3 @@
 
 
   <!-- New Block -->
-
